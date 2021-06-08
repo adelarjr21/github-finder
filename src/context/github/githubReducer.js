@@ -6,7 +6,7 @@ import {
     GET_REPOS
 } from '../types';
 
-export default (state, action) => {
+const GithubAction = (state, action) => {
     switch (action.type) {
         case SEARCH_USERS:
             return {
@@ -26,6 +26,12 @@ export default (state, action) => {
                 users: [],
                 loading: false
             }
+        case GET_REPOS:
+            return {
+                ...state,
+                repos: action.payload,
+                loading: false
+            }
         case SET_LOADING:
             return {
                 ...state,
@@ -35,3 +41,5 @@ export default (state, action) => {
             return state;
     }
 }
+
+export default GithubAction
